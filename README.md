@@ -49,4 +49,4 @@ Version 1.0 only have default template.
 
 ## Developer
 
-Make by Mane.
+Made by Mane.
