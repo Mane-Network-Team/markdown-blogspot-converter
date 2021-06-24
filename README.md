@@ -27,7 +27,7 @@ Show Save File Dialog : "`Do not popup save file dialog`"
 
 After Export : Disable the `show command output`
 
-![Setting](\picture\setting.png)
+![Setting](picture\setting.png)
 
 ## About the file system
 
