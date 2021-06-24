@@ -1,14 +1,10 @@
 # typora-blogspot-converter
 
-A Plug-in converting readme file to html via blogspot used only.
-
-## Version
-
-Download will be [here](https://github.com/Mane-Network-Team/typora-blogspot-converter/releases).
+A Plug-in converting readme file to html for google blogspot used only.
 
 ## Install
 
-Download [typora](https://typora.io/) and clone the code for you localhost.
+Download [typora](https://typora.io/) and [releases](https://github.com/Mane-Network-Team/typora-blogspot-converter/releases) on your file system.
 
 Install `Python3` and `markdown` modules.
 
@@ -30,6 +26,8 @@ pip3 install markdown
 Show Save File Dialog : "`Do not popup save file dialog`"
 
 After Export : Disable the `show command output`
+
+![Setting](\picture\setting.png)
 
 ## About the file system
 
