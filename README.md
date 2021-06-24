@@ -27,7 +27,7 @@ Show Save File Dialog : "`Do not popup save file dialog`"
 
 After Export : Disable the `show command output`
 
-![Setting](picture\setting.png)
+![Setting](https://raw.githubusercontent.com/Mane-Network-Team/typora-blogspot-converter/main/picture/setting.png)
 
 ## About the file system
 
