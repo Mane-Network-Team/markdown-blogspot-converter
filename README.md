@@ -29,7 +29,11 @@ After Export : Disable the `show command output`
 
 ![Setting](https://raw.githubusercontent.com/Mane-Network-Team/typora-blogspot-converter/main/picture/setting.png)
 
-## About the file system
+## How to use ?
+
+When you finished to config it, you just click `File` -> `Export` -> `Mane Blogger` . After that it will be generated `openfile.md.html` in the path where you open it.
+
+## About the file system and command
 
 `mdToHtml.py` 
 
@@ -48,3 +52,4 @@ Version 1.0 only have default template.
 ## Developer
 
 Made by Mane.
+
