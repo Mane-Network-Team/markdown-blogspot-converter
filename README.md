@@ -4,7 +4,7 @@ A Plug-in converting readme file to html via blogspot used only.
 
 ## Version
 
-Download will be here.
+Download will be [here](https://github.com/Mane-Network-Team/typora-blogspot-converter/releases).
 
 ## Install
 
