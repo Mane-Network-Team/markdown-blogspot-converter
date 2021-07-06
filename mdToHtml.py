@@ -1,7 +1,7 @@
 import getopt,sys
 import importlib
 
-version = "1.0.0"
+version = "1.0.1"
 
 if __name__ == "__main__":
     print("Mane mdTohtml Version %s" % (version))

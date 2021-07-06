@@ -10,6 +10,7 @@ Install `Python3` and `markdown` modules.
 
 ```bash
 pip3 install markdown
+pip3 install beautifulsoup4
 ```
 
 ## Add the Typora Support
@@ -47,7 +48,9 @@ The `template` directory will be save the template files.
 
 Version 1.0 only have default template.
 
-- `Default` 
+- `default` 
+- `default_singleimg`
+  - All the image will be convert Base64 format, If your image file is very large, the output file size will also be very large.
 
 ## Developer
 

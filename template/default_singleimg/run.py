@@ -1,20 +1,33 @@
 import markdown
-def run(output_file):
-    reader = open(output_file,'r',encoding='utf-8')
-    # https://python-markdown.github.io/extensions/
-    html = markdown.markdown(reader.read(),extensions=['extra'])
-    writer = open(output_file+".html",'w',encoding='utf-8')
+import core.ProcessImg as ProcessImg
 
-    # inject
+def run(input_file):
+    reader = open(input_file,'r',encoding='utf-8')
+    # https://python-markdown.github.io/extensions/
+    html = markdown.markdown(reader.read(),extensions=['extra','nl2br','sane_lists'])
+    writer = open(input_file+".html",'w',encoding='utf-8')
+
+    # sample replace
     html = html.replace('<code>','<code class="manecode">')
     html = html.replace('<pre','<pre class="prettyprint" ')
     html = html.replace('<blockquote','<blockquote class="maneblockquote"')
     
     writer.write('<div class="manearc">')
-    writer.write(html)
+
+    # process stream
+    for x in html.split('\n'):
+        # process image
+        if (x.find("<img") !=-1):
+            from bs4 import BeautifulSoup
+            soup = BeautifulSoup(x, 'html.parser')
+            for aimg in soup.find_all('img'):
+                aimg['src'] = ProcessImg.UrlToBase64(input_file,aimg['src'])
+            writer.write(str(soup) + '\n')
+            continue
+        writer.write(x + '\n')
     writer.write('\n</div>')
 
-    # inject class / js
+    # add class / js
     writer.write("""
     <style>
         .manearc h1,h2{
@@ -41,8 +54,9 @@ def run(output_file):
             text-align: inherit;
         }
     </style>
+
+    <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?lang=vb&amp;skin=sunburst"></script>
     """)
-    writer.write('<script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?lang=vb&amp;skin=sunburst"></script>' + '\n')
 
     # close files
     writer.close()
