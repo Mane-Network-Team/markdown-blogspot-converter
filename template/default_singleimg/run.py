@@ -4,7 +4,7 @@ import core.ProcessImg as ProcessImg
 def run(input_file):
     reader = open(input_file,'r',encoding='utf-8')
     # https://python-markdown.github.io/extensions/
-    html = markdown.markdown(reader.read(),extensions=['extra','nl2br','sane_lists'])
+    html = markdown.markdown(reader.read(),extensions=['toc','extra','nl2br','sane_lists'])
     writer = open(input_file+".html",'w',encoding='utf-8')
 
     # sample replace
@@ -53,6 +53,33 @@ def run(input_file):
             font-size:15px;
             text-align: inherit;
         }
+        .manearc table{
+			color: #75758b;
+			border-collapse: collapse;
+			border: 2px solid;
+			padding: 10px;
+			box-shadow: 0px 0px #888888;
+			border-radius:2px;
+			width:100%;
+		}
+		.manearc table td,.manearc table th {
+		  border: 1px solid #b3b3b3;
+		  padding: 8px;
+		  transition: all 0.3s ease;
+		}
+		
+		.manearc table th {
+		  padding-top: 12px;
+		  padding-bottom: 12px;
+		  text-align: left;
+		  background-color: #494a4c;
+		  color: white;
+		}
+		.manearc table tr:nth-child(odd){background-color: #ffffff;}
+		.manearc table tr:nth-child(even){background-color: #f2f2f2;}
+		.manearc table tr{transition: all 0.3s ease;}
+		.manearc table tr:hover {background-color: #ddd;}
+		.manearc table td:hover {background-color: #d9d9d9}
     </style>
 
     <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?lang=vb&amp;skin=sunburst"></script>
