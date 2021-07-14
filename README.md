@@ -34,6 +34,8 @@ After Export : Disable the `show command output`
 
 When you finished to config it, you just click `File` -> `Export` -> `Mane Blogger` . After that it will be generated `openfile.md.html` in the path where you open it.
 
+Next, you just copy the html code to google blogspot.
+
 ## About the file system and command
 
 `mdToHtml.py` 
