@@ -1,6 +1,6 @@
 # typora-blogspot-converter
 
-A Plug-in converting readme file to html for google blogspot used only.
+A Plug-in allow you to convert markdown code to html code for your google blogspot.
 
 ## Install
 
@@ -21,7 +21,7 @@ pip3 install beautifulsoup4
 4. Command line will be 
 
 ```bash
-<your_patch>\mdToHtml.py -i "${currentPath}" -t default
+<your_patch>\mdToHtml.py -i "${currentPath}" -t default [-m "<module name>"]
 ```
 
 Show Save File Dialog : "`Do not popup save file dialog`"
@@ -38,9 +38,10 @@ When you finished to config it, you just click `File` -> `Export` -> `Mane Blogg
 
 `mdToHtml.py` 
 
-- `-i` : input file
-- `-t` : using the template in `template` directory .
-- `-v` : show versions
+- `-i` : (required) input file
+- `-t` : (required) using the template in `template` directory .
+- `-v` : (optional) show versions
+- `-m` : (optional) using module
 
 The `template` directory will be save the template files.
 
@@ -49,7 +50,10 @@ The `template` directory will be save the template files.
 Version 1.0 only have default template.
 
 - `default` 
-- `default_singleimg`
+
+## Module (-m) (optional)
+
+- `img2base64`
   - All the image will be convert Base64 format, If your image file is very large, the output file size will also be very large.
 
 ## Developer
