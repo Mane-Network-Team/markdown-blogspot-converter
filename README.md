@@ -56,7 +56,13 @@ Version 1.0 only have default template.
 - `img2base64`
   - All the image will be convert Base64 format, If your image file is very large, the output file size will also be very large.
 
+## Depend on
+
++ [markdown](https://github.com/Python-Markdown/markdown)
++ [BeautifulSoup](https://www.crummy.com/software/BeautifulSoup/)
++ [code-prettify](https://github.com/googlearchive/code-prettify)
++ [MathJax](https://www.mathjax.org/)
+
 ## Developer
 
-Made by Mane.
-
+by Mane.
