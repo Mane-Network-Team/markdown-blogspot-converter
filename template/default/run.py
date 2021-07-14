@@ -14,17 +14,6 @@ def run(input_file,modules):
     
     writer.write('<div class="manearc">')
 
-    # process stream
-    # for x in html.split('\n'):
-    #     # process image
-    #     if (x.find("<img") !=-1):
-    #         from bs4 import BeautifulSoup
-    #         soup = BeautifulSoup(x, 'html.parser')
-    #         for aimg in soup.find_all('img'):
-    #             aimg['src'] = ProcessImg.UrlToBase64(input_file,aimg['src'])
-    #         writer.write(str(soup) + '\n')
-    #         continue
-
     for module in modules:
         print("* Using %s module ..." % (module))
         lib = importlib.import_module('module.%s' % (module))

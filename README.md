@@ -13,7 +13,7 @@ pip3 install markdown
 pip3 install beautifulsoup4
 ```
 
-## Add the Typora Support
+## Add the Typora Export
 
 1. Open `Typora`
 2. Click `File` -> `Preferences` -> `Export`  -> `+`  to add one 
