@@ -68,3 +68,5 @@ Version 1.0 only have default template.
 ## Developer
 
 by Mane.
+
+![visitors](https://visitor-badge.glitch.me/badge?page_id=https://github.com/Mane-Network-Team/typora-blogspot-converter)
