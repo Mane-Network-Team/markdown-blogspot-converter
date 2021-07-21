@@ -11,6 +11,7 @@ Install `Python3` and `markdown` modules.
 ```bash
 pip3 install markdown
 pip3 install beautifulsoup4
+pip3 install requests
 ```
 
 ## Add the Typora Export
