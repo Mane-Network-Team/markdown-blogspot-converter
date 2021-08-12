@@ -47,6 +47,7 @@ def run(input_file,modules):
                 border-left: 5px solid #dfe2e5;
                 font-size:15px;
                 text-align: inherit;
+                font-style:normal;
             }
             .manearc table{
                 color: #75758b;
