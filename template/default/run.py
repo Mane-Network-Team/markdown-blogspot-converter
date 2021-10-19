@@ -4,12 +4,10 @@ import importlib
 def run(input_file,modules):
     reader = open(input_file,'r',encoding='utf-8')
     # https://python-markdown.github.io/extensions/
-    html = markdown.markdown(reader.read(),extensions=['toc','extra','nl2br','sane_lists'])
+    html = markdown.markdown(reader.read(),extensions=['toc','extra','nl2br','sane_lists',])
     writer = open(input_file+".html",'w',encoding='utf-8')
 
     # sample replace
-    html = html.replace('<code>','<code class="manecode">')
-    html = html.replace('<pre','<pre class="prettyprint" ')
     html = html.replace('<blockquote','<blockquote class="maneblockquote"')
     
     writer.write('<div class="manearc">')
@@ -34,11 +32,7 @@ def run(input_file,modules):
                 text-decoration: none;
                 color: rgb(147, 196, 125);
             }
-            .manearc .manecode{
-                background: rgb(246,248,250);
-                padding: 3px 3px 3px 3px;
-                border-radius: 3px;
-            }
+
             .manearc .maneblockquote{
                 color: #777777; 
                 margin-inline-start: 0px;
@@ -77,22 +71,7 @@ def run(input_file,modules):
             .manearc table td:hover {background-color: #d9d9d9}
         </style>
 
-        <script type="text/x-mathjax-config">
-        MathJax.Hub.Config({
-            enableMenu: false,
-            extensions: ["tex2jax.js"],
-            jax: ["input/TeX", "output/HTML-CSS"],
-            tex2jax: {
-            displayMath: [ ['$$','$$'] ],
-            processEscapes: true
-            },
-            showMathMenu: false,
-            "HTML-CSS": { availableFonts: ["TeX"] }
-        });
-        </script>
 
-        <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?lang=vb&amp;skin=sunburst"></script>
-        <script async="" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     """)
    
 
