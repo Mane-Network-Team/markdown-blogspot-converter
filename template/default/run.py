@@ -9,7 +9,8 @@ def run(input_file,modules):
 
     # sample replace
     html = html.replace('<blockquote','<blockquote class="maneblockquote"')
-    
+    html = html.replace('<code>','<code class="manecode">')
+
     writer.write('<div class="manearc">')
 
     for module in modules:
@@ -42,6 +43,7 @@ def run(input_file,modules):
                 font-size:15px;
                 text-align: inherit;
                 font-style:normal;
+                line-height: 20px;
             }
             .manearc table{
                 color: #75758b;
@@ -69,6 +71,13 @@ def run(input_file,modules):
             .manearc table tr{transition: all 0.3s ease;}
             .manearc table tr:hover {background-color: #ddd;}
             .manearc table td:hover {background-color: #d9d9d9}
+
+            .manearc .manecode{
+                background: rgb(245 245 245);
+                padding: 2px 2px 2px 2px;
+                border-radius: 3px;
+            }     
+
         </style>
 
 

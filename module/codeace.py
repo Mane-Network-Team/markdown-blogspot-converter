@@ -64,7 +64,7 @@ def run(input_file,html):
 <style>
     .ace_line {transition: all 0.3s ease;}
     .ace_line:hover {background-color: #e8e8e8}
-    .ace-crimson-editor{border: 1px rgb(202 202 202) solid;}
+    .ace-crimson-editor{border: 1px rgb(202 202 202) solid;line-height: normal;}
 </style>
     """
     return html
