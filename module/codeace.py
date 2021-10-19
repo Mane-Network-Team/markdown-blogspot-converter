@@ -33,8 +33,21 @@ def run(input_file,html):
             return;
             // 拆分class
             const p = el.className.split(' ').map(v => v.replace(/ /g,''));
+            // Typora to know words
+            // https://pagecdn.com/lib/ace
+
+            var convert_keyword = {
+                "c#":"csharp", "js":"javascript","c++":"c_cpp",
+                "c":"c_cpp"
+            }
+            
+            var langu = p[0].replace("language-","")  || "plain_text"
+            if (langu in convert_keyword){
+                langu = convert_keyword[langu]
+            }
+
             // 这里是设置着色的语言
-            el.setAttribute('ace-mode', 'ace/mode/' + (p[0].replace("language-","") || "plain_text"));
+            el.setAttribute('ace-mode', 'ace/mode/' + (langu));
             // 这里可以修改主题颜色
             el.setAttribute('ace-theme', 'ace/theme/crimson_editor');
             el.setAttribute('gutter',  p[3] || true);
