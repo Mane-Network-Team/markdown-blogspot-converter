@@ -78,7 +78,7 @@ If you like to change the theme, just copy it.
 
 + [markdown](https://github.com/Python-Markdown/markdown)
 + [BeautifulSoup](https://www.crummy.com/software/BeautifulSoup/)
-+ [code-prettify](https://github.com/googlearchive/code-prettify)
++ [ACE Editor](https://ace.c9.io/)
 + [MathJax](https://www.mathjax.org/)
 + [Google Code Prettify](https://github.com/googlearchive/code-prettify)
 
