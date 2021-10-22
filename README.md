@@ -6,6 +6,10 @@ A Plug-in allow you to convert markdown code to html code for your google blogsp
 
 Download [typora](https://typora.io/) and [releases](https://github.com/Mane-Network-Team/typora-blogspot-converter/releases) on your file system.
 
+```bash
+git clone https://github.com/Mane-Network-Team/typora-blogspot-converter.git .
+```
+
 Install `Python3` and `markdown` modules.
 
 ```bash
