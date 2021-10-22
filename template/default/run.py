@@ -32,8 +32,11 @@ def run(input_file,modules):
             .manearc a{
                 text-decoration: none;
                 color: rgb(147, 196, 125);
+                transition:0.5s;
             }
-
+            .manearc a:hover{
+                color:#69ad4b
+            }
             .manearc .maneblockquote{
                 color: #777777; 
                 margin-inline-start: 0px;
@@ -55,16 +58,16 @@ def run(input_file,modules):
                 width:100%;
             }
             .manearc table td,.manearc table th {
-            border: 1px solid #b3b3b3;
-            padding: 8px;
-            transition: all 0.3s ease;
+                border: 1px solid #b3b3b3;
+                padding: 8px;
+                transition: all 0.3s ease;
             }
             .manearc table th {
-            padding-top: 12px;
-            padding-bottom: 12px;
-            text-align: left;
-            background-color: #494a4c;
-            color: white;
+                padding-top: 12px;
+                padding-bottom: 12px;
+                text-align: left;
+                background-color: #494a4c;
+                color: white;
             }
             .manearc table tr:nth-child(odd){background-color: #ffffff;}
             .manearc table tr:nth-child(even){background-color: #f2f2f2;}
@@ -76,8 +79,16 @@ def run(input_file,modules):
                 background: rgb(245 245 245);
                 padding: 2px 2px 2px 2px;
                 border-radius: 3px;
+                transition: 0.5s;
             }     
-
+            .manearc .manecode:hover{
+                background: #757575;
+                color: whitesmoke;
+            } 
+            .manearc p {
+                transition: 0.5s;
+            }
+            .manearc p:hover{color:#000}
         </style>
 
 
