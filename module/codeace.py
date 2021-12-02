@@ -38,7 +38,7 @@ def run(input_file,html):
 
             var convert_keyword = {
                 "c#":"csharp", "js":"javascript","c++":"c_cpp",
-                "c":"c_cpp"
+                "c":"c_cpp", "bash":"sh","shell":"sh"
             }
             
             var langu = p[0].replace("language-","")  || "plain_text"

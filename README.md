@@ -16,6 +16,7 @@ Install `Python3` and those modules.
 pip3 install markdown
 pip3 install beautifulsoup4
 pip3 install requests
+pip3 install pymdown-extensions
 ```
 
 ## How to use ?
@@ -37,13 +38,13 @@ The `template` directory will be save the template files.
 
 ## Example command line
 
-```shell
+```bash
 <your_patch>\mdToHtml.py -i "${currentPath}" -t default [-m "<module name>"]
 ```
 
 **Example like this one:**
 
-```shell
+```bash
 <your_patch>\mdToHtml.py -i "${currentPath}" -t default -m img2base64,mathjax,codeace
 ```
 
