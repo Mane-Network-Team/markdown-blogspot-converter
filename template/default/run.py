@@ -4,10 +4,9 @@ import importlib
 def run(input_file,modules):
     reader = open(input_file,'r',encoding='utf-8')
     # https://python-markdown.github.io/extensions/
-    extens = ['toc','extra','nl2br','sane_lists',
+    extens = ['toc','pymdownx.extra','nl2br','sane_lists',
         "pymdownx.tasklist",
         "pymdownx.critic",
-        'pymdownx.details',
         "pymdownx.tilde",
     ]
 
