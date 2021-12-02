@@ -4,10 +4,10 @@ import importlib
 def run(input_file,modules):
     reader = open(input_file,'r',encoding='utf-8')
     # https://python-markdown.github.io/extensions/
-    extens = ['toc','pymdownx.extra','nl2br','sane_lists',
+    extens = ['toc','extra','sane_lists',
         "pymdownx.tasklist",
         "pymdownx.critic",
-        "pymdownx.tilde",
+        "pymdownx.tilde",'nl2br',
     ]
 
     html = markdown.markdown(reader.read(),extensions=extens)
