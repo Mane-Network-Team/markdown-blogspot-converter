@@ -1,16 +1,16 @@
-# typora-blogspot-converter
+# markdown-blogspot-converter
 
 A Plug-in allow you to convert markdown code to html code for your google blogspot.
 
 ## Install
 
-Download [typora](https://typora.io/) and [releases](https://github.com/Mane-Network-Team/typora-blogspot-converter/releases) on your file system.
+Download [releases](https://github.com/Mane-Network-Team/typora-blogspot-converter/releases) on your file system.
 
 ```bash
-git clone https://github.com/Mane-Network-Team/typora-blogspot-converter.git .
+git clone https://github.com/Mane-Network-Team/markdown-blogspot-converter.git .
 ```
 
-Install `Python3` and `markdown` modules.
+Install `Python3` and those modules.
 
 ```bash
 pip3 install markdown
@@ -18,34 +18,9 @@ pip3 install beautifulsoup4
 pip3 install requests
 ```
 
-## Add the Typora Export
-
-1. Open `Typora`
-2. Click `File` -> `Preferences` -> `Export`  -> `+`  to add one 
-3. Type the name like `To Google Blogger`
-4. Command line will be 
-
-```bash
-<your_patch>\mdToHtml.py -i "${currentPath}" -t default [-m "<module name>"]
-```
-
-**Example like this one:** 
-
-```bash
-<your_patch>\mdToHtml.py -i "${currentPath}" -t default -m img2base64,mathjax,codeace
-```
-
-Show Save File Dialog : "`Do not popup save file dialog`"
-
-After Export : Disable the `show command output`
-
-![Setting](https://raw.githubusercontent.com/Mane-Network-Team/typora-blogspot-converter/main/picture/setting.png)
-
 ## How to use ?
 
-When you finished to config it, you just click `File` -> `Export` -> `Mane Blogger` . After that it will be generated `*.md.html` in the path where you open it.
-
-Next, you **just copy the html code to google blogspot**.
+Drop the markdown file to `dropTohere.py` or using the terminal with `mdToHtml.py`, it will generate html code in markdown file directory.
 
 ## About the file system and command
 
@@ -55,11 +30,24 @@ Next, you **just copy the html code to google blogspot**.
 - `-t` : (required) using the template in `template` directory .
 - `-v` : (optional) show versions
 - `-m` : (optional) using module
-  - Multiple use `,` to split it, like `-m img2base64,code4ace`
+
+Multiple use `,` to split it, like `-m img2base64,code4ace`
 
 The `template` directory will be save the template files.
 
-## Template (-t)
+## Example command line
+
+```shell
+<your_patch>\mdToHtml.py -i "${currentPath}" -t default [-m "<module name>"]
+```
+
+**Example like this one:**
+
+```shell
+<your_patch>\mdToHtml.py -i "${currentPath}" -t default -m img2base64,mathjax,codeace
+```
+
+### Option template (-t)
 
 Version 1.0 only have default template.
 
@@ -67,7 +55,7 @@ Version 1.0 only have default template.
 
 If you like to change the theme, just copy it.
 
-## Module (-m) (optional)
+### Option module (-m) (optional)
 
 - `img2base64`
   - All the image will be convert Base64 format, If your image file is very large, the output file size will also be very large.
@@ -89,4 +77,3 @@ If you like to change the theme, just copy it.
 ## Developer
 
 by Mane.
-

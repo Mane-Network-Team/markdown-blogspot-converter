@@ -1,0 +1,193 @@
+<div class="manearc"><h1 id="markdown-blogspot-converter">markdown-blogspot-converter</h1>
+<p>A Plug-in allow you to convert markdown code to html code for your google blogspot.</p>
+<h2 id="install">Install</h2>
+<p>Download <a href="https://github.com/Mane-Network-Team/typora-blogspot-converter/releases">releases</a> on your file system.</p>
+<pre><code class="language-bash">git clone https://github.com/Mane-Network-Team/markdown-blogspot-converter.git .
+</code></pre>
+<p>Install <code class="manecode">Python3</code> and those modules.</p>
+<pre><code class="language-bash">pip3 install markdown
+pip3 install beautifulsoup4
+pip3 install requests
+</code></pre>
+<h2 id="how-to-use">How to use ?</h2>
+<p>Drop the markdown file to <code class="manecode">dropTohere.py</code> or using the terminal with <code class="manecode">mdToHtml.py</code>, it will generate html code in markdown file directory.</p>
+<h2 id="about-the-file-system-and-command">About the file system and command</h2>
+<p><code class="manecode">mdToHtml.py</code> </p>
+<ul>
+<li><code class="manecode">-i</code> : (required) input file</li>
+<li><code class="manecode">-t</code> : (required) using the template in <code class="manecode">template</code> directory .</li>
+<li><code class="manecode">-v</code> : (optional) show versions</li>
+<li><code class="manecode">-m</code> : (optional) using module</li>
+</ul>
+<p>Multiple use <code class="manecode">,</code> to split it, like <code class="manecode">-m img2base64,code4ace</code></p>
+<p>The <code class="manecode">template</code> directory will be save the template files.</p>
+<h2 id="example-command-line">Example command line</h2>
+<pre><code class="language-shell">&lt;your_patch&gt;\mdToHtml.py -i &quot;${currentPath}&quot; -t default [-m &quot;&lt;module name&gt;&quot;]
+</code></pre>
+<p><strong>Example like this one:</strong></p>
+<pre><code class="language-shell">&lt;your_patch&gt;\mdToHtml.py -i &quot;${currentPath}&quot; -t default -m img2base64,mathjax,codeace
+</code></pre>
+<h3 id="option-template-t">Option template (-t)</h3>
+<p>Version 1.0 only have default template.</p>
+<ul>
+<li><code class="manecode">default</code> </li>
+</ul>
+<p>If you like to change the theme, just copy it.</p>
+<h3 id="option-module-m-optional">Option module (-m) (optional)</h3>
+<ul>
+<li><code class="manecode">img2base64</code></li>
+<li>All the image will be convert Base64 format, If your image file is very large, the output file size will also be very large.</li>
+<li><code class="manecode">codeace</code></li>
+<li>Code highlight by <a href="https://ace.c9.io/">ACE Editor</a>.</li>
+<li><code class="manecode">codeprettify</code></li>
+<li>Code highlight by <a href="https://github.com/googlearchive/code-prettify">Google Code Prettify</a>.</li>
+<li><code class="manecode">mathjax</code></li>
+<li>Parse math formula (Like LaTeX) to image via <a href="https://www.mathjax.org/">MathJax</a>.</li>
+</ul>
+<h2 id="depend-on">Depend on</h2>
+<ul>
+<li><a href="https://github.com/Python-Markdown/markdown">markdown</a></li>
+<li><a href="https://www.crummy.com/software/BeautifulSoup/">BeautifulSoup</a></li>
+<li><a href="https://ace.c9.io/">ACE Editor</a></li>
+<li><a href="https://www.mathjax.org/">MathJax</a></li>
+<li><a href="https://github.com/googlearchive/code-prettify">Google Code Prettify</a></li>
+</ul>
+<h2 id="developer">Developer</h2>
+<p>by Mane.</p>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="https://pagecdn.io/lib/ace/1.4.12/ace.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="https://pagecdn.io/lib/ace/1.4.12/ext-static_highlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<script>
+    (async () => {
+
+        if(document.getElementsByTagName('pre').length === 0) {
+            console.log('Ace.js 未加载 -> 没有找到代码段');
+            return;
+        }
+
+        const base_url = 'https://pagecdn.io/lib/ace/1.4.12/';
+
+        const get_script = function (url) {
+            return new Promise((s, j) => {
+                $.getScript(url, s, j );
+            })
+        };
+
+        // 这里设置ace加载解析器的基础地址, 自己部署的话设置为自己ace.js组件的地址, 这里使用的是CDN的
+        ace.config.set('basePath', base_url);
+        const highlight = ace.require("ace/ext/static_highlight");
+
+        // 搜索 pre code 解构的块, 进行着色
+        [].map.call(document.querySelectorAll('pre code'), ((el) => {
+            // 如果已经被设置了ace-mode的话, 这个块已经是被高亮过了, 就不重复了
+            if (el.getAttribute( 'ace-mode'))
+            return;
+            // 拆分class
+            const p = el.className.split(' ').map(v => v.replace(/ /g,''));
+            // Typora to know words
+            // https://pagecdn.com/lib/ace
+
+            var convert_keyword = {
+                "c#":"csharp", "js":"javascript","c++":"c_cpp",
+                "c":"c_cpp"
+            }
+            
+            var langu = p[0].replace("language-","")  || "plain_text"
+            if (langu in convert_keyword){
+                langu = convert_keyword[langu]
+            }
+
+            // 这里是设置着色的语言
+            el.setAttribute('ace-mode', 'ace/mode/' + (langu));
+            // 这里可以修改主题颜色
+            el.setAttribute('ace-theme', 'ace/theme/crimson_editor');
+            el.setAttribute('gutter',  p[3] || true);
+            highlight(el, {
+                mode: el.getAttribute("ace-mode"),
+                theme: el.getAttribute("ace-theme"),
+                startLineNumber: 1,
+                trim: true,
+                showGutter: el.getAttribute("gutter"),
+            });
+        }));
+    })();
+</script>
+<style>
+    .ace_line {transition: all 0.3s ease;}
+    .ace_line:hover {background-color: #e8e8e8}
+    .ace-crimson-editor{border: 1px rgb(202 202 202) solid;line-height: normal;}
+</style>
+    
+
+</div>
+        <style>
+            .manearc h1,h2{
+                padding-bottom: 0px;
+                border-bottom: 1px solid rgba(204, 204, 204, 0.281);
+                line-height: 200%;
+            }
+            .manearc a{
+                text-decoration: none;
+                color: rgb(147, 196, 125);
+                transition:0.5s;
+            }
+            .manearc a:hover{
+                color:#69ad4b
+            }
+            .manearc .maneblockquote{
+                color: #777777; 
+                margin-inline-start: 0px;
+                margin-inline-end: 0px;
+                padding-left:15px;
+                border-left: 5px solid #dfe2e5;
+                font-size:15px;
+                text-align: inherit;
+                font-style:normal;
+                line-height: 20px;
+            }
+            .manearc table{
+                color: #75758b;
+                border-collapse: collapse;
+                border: 2px solid;
+                padding: 10px;
+                box-shadow: 0px 0px #888888;
+                border-radius:2px;
+                width:100%;
+            }
+            .manearc table td,.manearc table th {
+                border: 1px solid #b3b3b3;
+                padding: 8px;
+                transition: all 0.3s ease;
+            }
+            .manearc table th {
+                padding-top: 12px;
+                padding-bottom: 12px;
+                text-align: left;
+                background-color: #494a4c;
+                color: white;
+            }
+            .manearc table tr:nth-child(odd){background-color: #ffffff;}
+            .manearc table tr:nth-child(even){background-color: #f2f2f2;}
+            .manearc table tr{transition: all 0.3s ease;}
+            .manearc table tr:hover {background-color: #ddd;}
+            .manearc table td:hover {background-color: #d9d9d9}
+
+            .manearc .manecode{
+                background: rgb(245 245 245);
+                padding: 2px 2px 2px 2px;
+                border-radius: 3px;
+                transition: 0.5s;
+            }     
+            .manearc .manecode:hover{
+                background: #757575;
+                color: whitesmoke;
+            } 
+            .manearc p {
+                transition: 0.5s;
+            }
+            .manearc p:hover{color:#000}
+        </style>
+
+
+    
