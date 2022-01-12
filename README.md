@@ -21,7 +21,7 @@ pip3 install pymdown-extensions
 
 ## How to use ?
 
-Drop the markdown file to `dropTohere.py` or using the terminal with `mdToHtml.py`, it will generate html code in markdown file directory.
+Drop the markdown file to `dropMDTohere.py` or using the terminal with `mdToHtml.py`, it will generate html code in markdown file directory.
 
 ## About the file system and command
 
