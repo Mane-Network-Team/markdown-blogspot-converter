@@ -15,6 +15,8 @@ if not(os.path.exists(dir + "//" + "output")):
 new_url = input("[>] Input your new url (end with '/'): ")
 
 for img in (bs.find_all("img")):
+    if (img["src"].find("https://") !=-1):
+        continue
     print("Copying %s to %s ..." % (dir + "//" + img["src"],dir + "//" + "output"+ "//"))
     shutil.copy(dir + "//" + img["src"], dir + "//" + "output"+ "//")
     img["src"] = new_url + img["src"].split("/")[-1]
