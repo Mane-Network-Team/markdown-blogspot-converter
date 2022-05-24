@@ -2,6 +2,7 @@ from cgitb import html
 from symtable import symtable
 from bs4 import BeautifulSoup
 import sys,os,shutil
+import urllib.parse
 
 file_path = sys.argv[1]
 dir, fname = os.path.split(file_path)
@@ -17,6 +18,7 @@ new_url = input("[>] Input your new url (end with '/'): ")
 for img in (bs.find_all("img")):
     if (img["src"].find("https://") !=-1):
         continue
+    img["src"] = urllib.parse.unquote(img["src"])
     print("Copying %s to %s ..." % (dir + "//" + img["src"],dir + "//" + "output"+ "//"))
     shutil.copy(dir + "//" + img["src"], dir + "//" + "output"+ "//")
     img["src"] = new_url + img["src"].split("/")[-1]
