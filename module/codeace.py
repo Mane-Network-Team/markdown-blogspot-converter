@@ -3,8 +3,8 @@
 def run(input_file,html):
     html += """
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" type="text/javascript" charset="utf-8"></script>
-<script src="https://pagecdn.io/lib/ace/1.4.12/ace.min.js" type="text/javascript" charset="utf-8"></script>
-<script src="https://pagecdn.io/lib/ace/1.4.12/ext-static_highlight.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.11.2/ace.js" type="text/javascript" charset="utf-8"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.11.2/ext-static_highlight.min.js" type="text/javascript" charset="utf-8"></script>
 
 <script>
     (async () => {
