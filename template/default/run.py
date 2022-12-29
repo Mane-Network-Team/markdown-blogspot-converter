@@ -30,6 +30,11 @@ def run(input_file,modules):
     # inject class / js
     writer.write("""
         <style>
+            .manearc img {
+                border: 4px solid rgba(0,0,0,0.2);
+                border-style: double;
+                border-radius: 5px;
+            }
             .manearc h1,h2{
                 padding-bottom: 0px;
                 border-bottom: 1px solid rgba(204, 204, 204, 0.281);
